@@ -10,7 +10,7 @@ Instead of managing maintenance through WhatsApp, spreadsheets, or paper registe
 
 ## 🌐 Live Demo
 
-🔗 https://hackathon-frontend-steel-six-blush.vercel.app/
+🔗 https://maintainiq-saas-frontend.vercel.app/
 
 ---
 # 🔑 Demo Credentials
