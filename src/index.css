@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Light palette */
+  --color-paper: #F5F6F4;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #EFF1ED;
+  --color-ink: #10151B;
+  --color-ink-soft: #4B5560;
+  --color-line: #E1E4E1;
+
+  /* Brand */
+  --color-graphite: #10151B;
+  --color-graphite-2: #1B2430;
+  --color-amber: #F2A93B;
+  --color-amber-ink: #6B4708;
+  --color-good: #2E8B57;
+  --color-warn: #DB8A1F;
+  --color-critical: #D64545;
+  --color-info: #3B7DD8;
+
+  --radius-tag: 3px;
+  --shadow-tag: 0 1px 2px rgba(16,21,27,0.06), 0 1px 1px rgba(16,21,27,0.04);
+}
+
+.dark {
+  --color-paper: #0A0D11;
+  --color-surface: #12161C;
+  --color-surface-2: #171C23;
+  --color-ink: #E9ECEE;
+  --color-ink-soft: #97A1AB;
+  --color-line: #232A33;
+}
+
+html {
+  font-family: var(--font-body);
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+::selection {
+  background-color: var(--color-amber);
+  color: var(--color-graphite);
+}
+
+/* Asset-tag signature: perforation edge */
+.tag-perforation {
+  background-image: radial-gradient(circle, var(--color-line) 1px, transparent 1.5px);
+  background-size: 10px 2px;
+  background-repeat: repeat-x;
+  background-position: top left;
+  height: 1px;
+}
+
+.corner-bracket {
+  position: relative;
+}
+.corner-bracket::before,
+.corner-bracket::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--color-amber);
+  opacity: 0.9;
+}
+.corner-bracket::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--color-amber);
+  border-left: 2px solid var(--color-amber);
+}
+.corner-bracket::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--color-amber);
+  border-right: 2px solid var(--color-amber);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 8px; }
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.35s ease-out both;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-asset-label,
+  #printable-asset-label * {
+    visibility: visible;
+  }
+  #printable-asset-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Mobile polish (public QR-report page + dashboards on phones):
+   - iOS Safari auto-zooms the page on focus of any text input whose
+     computed font-size is under 16px. The design system's inputs use
+     text-sm (14px), so bump them to 16px specifically on small screens
+     instead of changing the design everywhere.
+   - Bump tap targets on touch-sized viewports to the ~44px minimum
+     recommended for reliable, accidental-tap-free interaction. */
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  button,
+  [role="button"] {
+    min-height: 44px;
+  }
+}
+

@@ -73,3 +73,4 @@ With those fixes in place, everything below just works — no more manual IDs, n
 - **"Report on behalf of a walk-in"**: the Asset Detail page links to the same public `/scan/:assetCode` report form. If a staff member is logged in, their session cookie carries over, so AI triage still works even though it's the "public" page.
 - **Maintenance record creation resolves the issue** (per the backend's own logic), so the status dropdown on Issue Detail intentionally excludes "Resolved" — that transition only happens by logging a maintenance record.
 # Maintainiq-Saas-Frontend
+# Maintainiq-Saas-Frontend
