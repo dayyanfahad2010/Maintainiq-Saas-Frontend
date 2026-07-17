@@ -1,76 +1,387 @@
-# MaintainIQ — Frontend
+# 🚀 MaintainIQ
 
-React + Redux Toolkit frontend for the MaintainIQ hackathon backend: AI-powered QR maintenance and asset history platform.
+### AI-Powered QR Asset Maintenance & Lifecycle Management Platform
 
-## Stack
+MaintainIQ is an **Enterprise SaaS** platform built with the **MERN Stack** that helps organizations digitize and optimize asset maintenance using **QR Codes**, **Artificial Intelligence**, **Analytics**, and **Role-Based Workflows**.
 
-- **React 19 + Vite**
-- **Tailwind CSS v4** — custom industrial "asset tag" design system, dark/light theme
-- **Redux Toolkit + redux-persist** — all API calls go through slices/thunks; theme + session hint persisted to localStorage
-- **React Router v7** — protected routes, role-based routes, public (no-login) QR scan routes
-- **react-hook-form**, **axios** (cookie-based auth), **qrcode.react**, **lucide-react**, **react-hot-toast**
+Instead of managing maintenance through WhatsApp, spreadsheets, or paper registers, MaintainIQ provides a centralized platform where organizations can manage assets, track maintenance history, predict failures, and streamline maintenance operations.
 
-## Getting started
+---
+
+## 🌐 Live Demo
+
+🔗 https://hackathon-frontend-steel-six-blush.vercel.app/
+
+---
+# 🔑 Demo Credentials
+
+Use the following credentials to explore the platform.
+
+## 👑 Super Admin
+
+**Email**
+```text
+dayyanfahad20@gmail.com
+```
+
+**Password**
+```text
+12345678
+```
+
+---
+
+## Demo Access
+
+The Super Admin can:
+
+- View all organizations
+- Monitor platform analytics
+- Manage organizations
+- Access organization dashboards
+- Create organization admins
+- View platform-wide statistics
+
+---
+
+# ✨ Key Features
+
+## 🏢 Multi-Organization SaaS
+
+Every organization gets its own isolated workspace.
+
+Each organization has:
+
+- Assets
+- Users
+- Technicians
+- Reports
+- Analytics
+- Dashboard
+
+Data is completely isolated between organizations.
+
+---
+
+## 🔐 Authentication & Authorization
+
+- JWT Authentication
+- Secure Login
+- Protected Routes
+- Role-Based Access Control
+
+### User Roles
+
+### 👑 Super Admin
+
+- View all organizations
+- Monitor platform statistics
+- Platform administration
+
+### 🏢 Organization Admin
+
+- Create and manage organization assets
+- Invite technicians
+- Assign maintenance issues
+- View analytics
+- Generate QR labels
+
+### 👨‍🔧 Technician
+
+- Join organization using Organization Code
+- View assigned issues
+- Start inspections
+- Add maintenance notes
+- Upload evidence
+- Resolve maintenance tasks
+
+### 👤 Employee / Public User
+
+No login required.
+
+Simply scan the QR Code to:
+
+- View public asset details
+- Report maintenance issues
+- Submit evidence
+
+---
+
+# 🤖 AI Features
+
+MaintainIQ integrates Artificial Intelligence to improve maintenance decision-making.
+
+### AI Issue Triage
+
+Automatically generates
+
+- Professional Title
+- Category
+- Priority
+- Possible Causes
+- Initial Diagnostic Checks
+
+---
+
+### AI Asset Health
+
+Generate live AI analysis including
+
+- Asset Health Score (0–100)
+- Failure Probability
+- Remaining Useful Life
+- Recurring Issue Detection
+- Repair vs Replace Recommendation
+
+---
+
+### AI Asset Assistant
+
+Chat directly with an asset.
+
+The AI answers questions using the asset's
+
+- Issue History
+- Maintenance Records
+- Inspection Notes
+
+---
+
+### AI PDF Reports
+
+Generate professional maintenance reports with one click.
+
+Reports include
+
+- Asset Summary
+- AI Health Analysis
+- Complete Maintenance Timeline
+- History Table
+
+---
+
+# 📱 QR Powered Maintenance
+
+Every asset receives
+
+- Unique QR Code
+- Public Asset Page
+- Printable QR Label
+
+Professional QR Labels include
+
+- Company Logo
+- Asset Name
+- Asset Code
+- Location
+- Status Indicator
+- QR Code
+
+---
+
+# 📈 Analytics Dashboard
+
+Enterprise analytics include
+
+- Monthly Maintenance Cost
+- Technician Performance
+- Asset Health Overview
+- Issue Categories
+- Resolution Status
+- Average Resolution Time
+- Most Problematic Assets
+
+---
+
+# 📜 Asset Timeline
+
+Beautiful visual timeline displaying
+
+- Asset Created
+- Issue Reported
+- Assigned
+- Inspection Started
+- Maintenance Started
+- Resolved
+- Reopened
+- Retired
+
+---
+
+# 🎨 User Experience
+
+- Modern Enterprise UI
+- Apple / Linear Inspired Design
+- Responsive Layout
+- Framer Motion Animations
+- Interactive Cards
+- Smooth Page Transitions
+- Mobile Friendly
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- React.js
+- Redux Toolkit
+- React Router
+- Tailwind CSS
+- Framer Motion
+- Recharts
+- React Hook Form
+- Axios
+- jsPDF
+- QR Code Libraries
+- Lucide React
+
+---
+
+## Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- JWT Authentication
+- Cloudinary
+- Multer
+- Google Gemini AI
+
+---
+
+# 🚀 Core Workflow
+
+Organization Created
+
+↓
+
+Admin Creates Assets
+
+↓
+
+QR Code Generated
+
+↓
+
+Employee Scans QR
+
+↓
+
+Issue Reported
+
+↓
+
+AI Issue Analysis
+
+↓
+
+Admin Assigns Technician
+
+↓
+
+Technician Performs Maintenance
+
+↓
+
+AI Health Updated
+
+↓
+
+Asset Timeline Updated
+
+↓
+
+Analytics Updated
+
+↓
+
+AI Report Generated
+
+---
+
+# 📂 Project Structure
+
+```
+src/
+
+├── assets/
+├── components/
+├── hooks/
+├── layouts/
+├── pages/
+├── redux/
+├── routes/
+├── services/
+├── utils/
+└── App.jsx
+```
+
+---
+
+# 🚀 Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/dayyanfahad2010/maintainiq-frontend.git
+```
+
+Install dependencies
 
 ```bash
 npm install
-cp .env.example .env   # set VITE_API_URL to your backend, e.g. http://localhost:8000
+```
+
+Run development server
+
+```bash
 npm run dev
 ```
 
-The backend already whitelists `http://localhost:5173` in CORS, so run the frontend on the default Vite port for local dev.
+Build production
 
-## How auth works
+```bash
+npm run build
+```
 
-The backend issues an **httpOnly cookie** on login/signup, so the frontend never touches the JWT directly. `axiosClient` sends every request with `withCredentials: true`. On app load, `AuthBootstrap` calls `GET /api/auth/profile` to verify the session and populate Redux — this is what `ProtectedRoute` waits on before deciding whether to redirect to `/login`.
+---
 
-Only `auth` (user + session flag) and `ui` (theme) are persisted to localStorage; everything else (assets, issues, dashboard, history) is re-fetched from the API on each visit so it never goes stale in storage.
+# ⚙ Environment Variables
 
-## Route map
+Create a `.env` file.
 
-| Path | Access |
-|---|---|
-| `/` | Public landing page |
-| `/scan/:assetCode` | Public — QR destination, view asset + report an issue |
-| `/login`, `/signup`, `/forgot-password`, `/reset-password` | Public-only (redirects if already logged in) |
-| `/app/dashboard` | Protected — role-aware (admin vs technician summary) |
-| `/app/assets`, `/app/assets/:id` | Protected — both roles view; only admin can create/edit/retire |
-| `/app/issues` | Protected — admin only |
-| `/app/my-issues` | Protected — technician only |
-| `/app/issues/:id` | Protected — both roles |
+```env
+VITE_API_URL=your_backend_api
+```
 
-## Backend fixes applied
+---
 
-While wiring this frontend up, a handful of real backend bugs were found and fixed directly in the backend repo (see its `README.md` for the full list) — most importantly:
+# 🔮 Future Roadmap
 
-- Sign-up now actually saves a user's `role` (it was silently dropped before).
-- The admin "all issues" endpoint no longer collapses to "my issues" due to a `"Admin"` vs `"admin"` casing mismatch.
-- A missing `GROQ_API_KEY` no longer crashes the whole server — AI endpoints now fail gracefully with a `503`.
-- `POST /api/ai/triage` is now public, matching the product spec's unauthenticated QR-scan report flow.
-- Added `GET /api/users?role=technician` (admin-only), so this frontend can offer a real technician dropdown instead of asking for a raw MongoDB `_id`.
-- Auth cookies now use `secure`/`sameSite` conditional on `NODE_ENV`, so login actually persists over plain `http://localhost` in local dev.
-- **`createHistory` was called but never imported** in three controllers — reporting an issue, assigning a technician, changing status, and logging maintenance were all silently crashing with a 500 before this fix. This was the most important one.
-- **Evidence upload is now fully wired end-to-end.** The public issue-report form and the technician's maintenance form both have a real photo/video picker (`EvidencePicker`) that uploads through `multer` → Cloudinary on the backend.
+- Mobile Application
+- Predictive Maintenance using ML
+- IoT Device Integration
+- Enterprise Reporting
+- Offline Mode
+- Preventive Maintenance Scheduling
 
-With those fixes in place, everything below just works — no more manual IDs, no more silent 500s, and photos actually attach to issues and maintenance records.
+---
 
-## Competition polish (Tier 1)
+# 👨‍💻 Developer
 
-- **AI predictive health analysis** (`AssetHealthCard`) — on Asset Detail, generates a 0–100 health score with a circular gauge, failure probability, remaining-useful-life estimate, recurring-failure-pattern warning, and a plain repair-vs-replace recommendation. Backed by the new `GET /api/ai/asset-health/:assetId`.
-- **Printable QR asset labels** (`PrintLabelModal`) — a real print-ready label (branding, asset name/code/location, status color, QR) instead of just a raw QR download, using browser print with scoped print-only CSS.
-- **Visual asset history timeline** (`Timeline`) — replaced the plain list with a connected vertical timeline, auto-icon/color-coded by event type (created, reported, assigned, inspected, maintained, resolved, reopened, retired).
-- **UI polish pass** — `framer-motion` page transitions between routes, staggered fade-in on dashboard stat cards and asset cards, hover-lift on interactive cards, tactile button press feedback, and an animated landing page hero.
+**Dayyan Fahad**
 
-## Competition polish (Tier 2)
+GitHub
 
-- **Analytics dashboard** (`/app/analytics`, admin-only) — monthly maintenance cost trend, most problematic assets, technician performance, and issue breakdowns by category/status, all charted with `recharts`. Lazy-loaded on its own route chunk so it doesn't add weight to every user's initial page load.
-- **Per-asset AI chat assistant** (`AssetChatWidget`) — a real conversational widget on Asset Detail, grounded only in that asset's own history (not a generic chatbot), backed by `POST /api/ai/asset-chat/:assetId`.
-- **One-click AI PDF report** (`assetReportPdf.js`) — generates a branded PDF combining the asset summary, AI health analysis (if you've run one), and the full history table, via `jsPDF`. The PDF library is dynamically imported only when the button is clicked, so it never loads for people who don't use it.
+https://github.com/dayyanfahad2010
 
-## Notable frontend decisions
+LinkedIn
 
-- **QR codes are generated client-side** (`qrcode.react`) from `${origin}/scan/{assetCode}` — the backend doesn't generate a QR image, so on asset creation the frontend sends that URL as `publicUrl`/`qrCode` and renders the QR from it everywhere.
-- **"Report on behalf of a walk-in"**: the Asset Detail page links to the same public `/scan/:assetCode` report form. If a staff member is logged in, their session cookie carries over, so AI triage still works even though it's the "public" page.
-- **Maintenance record creation resolves the issue** (per the backend's own logic), so the status dropdown on Issue Detail intentionally excludes "Resolved" — that transition only happens by logging a maintenance record.
-# Maintainiq-Saas-Frontend
-# Maintainiq-Saas-Frontend
+https://www.linkedin.com/in/dayyan-fahad/
+
+---
+
+# ⭐ If you like this project
+
+Please consider giving this repository a ⭐ on GitHub.
